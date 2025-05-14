@@ -1,0 +1,36 @@
+Testing parameters: lr=0.0001, epochs=15, batch_size=8, weight_decay=0.01
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.007, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1086.9327, 'eval_samples_per_second': 2.99, 'eval_steps_per_second': 0.374}
+
+Testing parameters: lr=0.0001, epochs=15, batch_size=8, weight_decay=0.1
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.007, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1099.3111, 'eval_samples_per_second': 2.956, 'eval_steps_per_second': 0.37}
+
+Testing parameters: lr=0.0001, epochs=20, batch_size=8, weight_decay=0.01
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.006, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1101.7874, 'eval_samples_per_second': 2.95, 'eval_steps_per_second': 0.369}
+
+Testing parameters: lr=0.0001, epochs=20, batch_size=8, weight_decay=0.1
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.004, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1098.2685, 'eval_samples_per_second': 2.959, 'eval_steps_per_second': 0.371}
+
+Testing parameters: lr=5e-05, epochs=15, batch_size=8, weight_decay=0.01
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.009, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1100.2908, 'eval_samples_per_second': 2.954, 'eval_steps_per_second': 0.37}
+
+Testing parameters: lr=5e-05, epochs=15, batch_size=8, weight_decay=0.1
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.005, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1100.0278, 'eval_samples_per_second': 2.954, 'eval_steps_per_second': 0.37}
+
+Testing parameters: lr=5e-05, epochs=20, batch_size=8, weight_decay=0.01
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.0061, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1101.109, 'eval_samples_per_second': 2.952, 'eval_steps_per_second': 0.37}
+
+Testing parameters: lr=5e-05, epochs=20, batch_size=8, weight_decay=0.1
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.0038, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1098.9582, 'eval_samples_per_second': 2.957, 'eval_steps_per_second': 0.37}
+
+Testing parameters: lr=3e-05, epochs=15, batch_size=8, weight_decay=0.01
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.004, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1098.6802, 'eval_samples_per_second': 2.958, 'eval_steps_per_second': 0.37}
+
+Testing parameters: lr=3e-05, epochs=15, batch_size=8, weight_decay=0.1
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.007, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1097.7287, 'eval_samples_per_second': 2.961, 'eval_steps_per_second': 0.371}
+
+Testing parameters: lr=3e-05, epochs=20, batch_size=8, weight_decay=0.01
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.006, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1069.0172, 'eval_samples_per_second': 3.04, 'eval_steps_per_second': 0.381}
+
+Testing parameters: lr=3e-05, epochs=20, batch_size=8, weight_decay=0.1
+Results: {'eval_loss': 2.2669453620910645, 'eval_model_preparation_time': 0.0074, 'eval_precision': 0.021741339022655695, 'eval_recall': 0.14420485175202155, 'eval_f1': 0.03778582148847885, 'eval_accuracy': 0.08590690333768486, 'eval_runtime': 1398.1922, 'eval_samples_per_second': 2.324, 'eval_steps_per_second': 0.291}
+
