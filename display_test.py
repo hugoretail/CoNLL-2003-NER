@@ -11,7 +11,7 @@ def display_dataset_info(dataset, split_name):
     print(f"{split_name.capitalize()} Set:")
     print(f"  Number of lines: {num_rows}")
     print(f"  Number of columns: {num_columns}")
-    print(f"  Data sample: {split[0]}")
+    print(f"  Data sample: {split[:3]}")
     print()
 
 display_dataset_info(dataset, 'train')

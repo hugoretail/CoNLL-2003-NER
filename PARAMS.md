@@ -1,4 +1,4 @@
-# Training the model attempts
+# Training the model attempts with main_old.py
 
 ## Best solution found
 
@@ -86,4 +86,54 @@ training_args = TrainingArguments(
 ### Results
 
 > {'eval_loss': 2.2905378341674805, 'eval_model_preparation_time': 0.0035, 'eval_runtime': 259.973, 'eval_samples_per_second': 12.501, 'eval_steps_per_second': 0.785}
+
+# Training the model attempts with main.py
+
+## Attempt 1
+
+### Parameters
+```
+training_args = TrainingArguments(
+    output_dir="./results",
+    learning_rate=2e-4,
+    per_device_train_batch_size=8,          
+    per_device_eval_batch_size=8,
+    num_train_epochs=3,                     
+    weight_decay=0.001,                      
+    gradient_accumulation_steps=2,          
+    warmup_steps=500,                    
+    logging_steps=200,
+    logging_dir="./logs",
+    dataloader_pin_memory=False,
+    fp16=True            
+)
+```
+### Results
+
+> {'train_runtime': 1663.1504, 'train_samples_per_second': 1.804, 'train_steps_per_second': 0.112, 'train_loss': 0.49085297123078375, 'epoch': 2.96} 100% 186/186 [27:43<00:00,  8.94s/it]
+
+## Attempt 2
+
+### Parameters
+```
+training_args = TrainingArguments(
+    output_dir="./results",
+    learning_rate=2e-4,
+    per_device_train_batch_size=8,          
+    per_device_eval_batch_size=8,
+    num_train_epochs=6,                     
+    weight_decay=0.001,                      
+    gradient_accumulation_steps=4,          
+    warmup_steps=500,                    
+    logging_steps=200,
+    logging_dir="./logs",
+    dataloader_pin_memory=False,
+    fp16=True            
+)
+```
+### Results
+
+> {'train_runtime': 2672.9288, 'train_samples_per_second': 2.245, 'train_steps_per_second': 0.07, 'train_loss': 0.4548583081973496, 'epoch': 5.83}
+
+> Results evaluation: {'eval_loss': 0.07641442865133286, 'eval_precision': 0.9051339285714286, 'eval_recall': 0.9215909090909091, 'eval_f1': 0.9132882882882882, 'eval_accuracy': 0.9815789473684211, 'eval_runtime': 43.4167, 'eval_samples_per_second': 11.516, 'eval_steps_per_second': 1.451, 'epoch': 5.832}
 
