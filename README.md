@@ -1,7 +1,14 @@
-use ndoejs for backend
-django (maybe just look at it)
+
+
 
 # CoNLL-2003-NER
+
+## TODO
+- [ ] Check about using ndoejs for backend
+- [ ] Look at Django
+- [ ] Make a web user interface (maybe using React)
+- [ ] Make the link between items
+
 
 ## Github Repository
 

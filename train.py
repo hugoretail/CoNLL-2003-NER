@@ -5,7 +5,7 @@ import numpy as np
 import json
 
 data_path = 'data'
-dataset = load_from_disk(data_path) # load_dataset("conll2003")
+dataset = load_from_disk(data_path)
 train_dataset = dataset['train']
 validation_dataset = dataset['validation']
 
@@ -50,15 +50,15 @@ tokenized_validation_dataset = validation_dataset.map(tokenize_and_align_labels,
 training_args = TrainingArguments(
     output_dir="./results",
     learning_rate=2e-4,
-    per_device_train_batch_size=8,
-    per_device_eval_batch_size=8,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
     num_train_epochs=3,
     weight_decay=0.001,
-    gradient_accumulation_steps=4,
+    gradient_accumulation_steps=1,
     warmup_steps=500,
     logging_steps=200,
     logging_dir="./logs",
-    dataloader_pin_memory=False,
+    dataloader_pin_memory=True,
     fp16=True
 )
 
