@@ -1,9 +1,11 @@
-from datasets import load_from_disk
+from datasets import load_from_disk, load_dataset
 from transformers import AutoTokenizer, AutoModelForTokenClassification, TrainingArguments, Trainer
 from evaluate import load
+import numpy as np
+import json
 
 data_path = 'data'
-dataset = load_from_disk(data_path)
+dataset = load_from_disk(data_path) # load_dataset("conll2003")
 train_dataset = dataset['train']
 validation_dataset = dataset['validation']
 
@@ -60,13 +62,42 @@ training_args = TrainingArguments(
     fp16=True
 )
 
+metric = load("seqeval")
+label_list = ["O", "B-PER", "I-PER", "B-LOC", "I-LOC", "B-ORG", "I-ORG", "B-MISC", "I-MISC"]
+
+def compute_metrics(p):
+    predictions, labels = p
+    predictions = np.argmax(predictions, axis=2)
+
+    true_labels = [
+        [label_list[label] for label in label_seq if label != -100]
+        for label_seq in labels
+    ]
+    true_predictions = [
+        [label_list[pred] for pred, label in zip(pred_seq, label_seq) if label != -100]
+        for pred_seq, label_seq in zip(predictions, labels)
+    ]
+
+    results = metric.compute(predictions=true_predictions, references=true_labels)
+    return {
+        "precision": results["overall_precision"],
+        "recall": results["overall_recall"],
+        "f1": results["overall_f1"],
+        "accuracy": results["overall_accuracy"],
+    }
+
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized_train_dataset,
-    eval_dataset=tokenized_validation_dataset
+    eval_dataset=tokenized_validation_dataset,
+    compute_metrics=compute_metrics
 )
 
 trainer.train()
-
 trainer.save_model("./trained_model")
+eval_results = trainer.evaluate()
+results_path = './results/eval_results.json'
+with open(results_path, "w") as f:
+    json.dump(eval_results, f, indent=4)
+print(eval_results)
