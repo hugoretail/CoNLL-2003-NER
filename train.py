@@ -1,4 +1,4 @@
-from datasets import load_from_disk, load_dataset
+from datasets import load_from_disk
 from transformers import AutoTokenizer, AutoModelForTokenClassification, TrainingArguments, Trainer
 from evaluate import load
 import numpy as np
@@ -96,6 +96,8 @@ trainer = Trainer(
 
 trainer.train()
 trainer.save_model("./trained_model")
+tokenizer.save_pretrained("./trained_model")
+
 eval_results = trainer.evaluate()
 results_path = './results/eval_results.json'
 with open(results_path, "w") as f:
