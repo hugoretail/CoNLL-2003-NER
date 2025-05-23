@@ -32,7 +32,7 @@ function App() {
     setLoading(true);
     
     try {
-      const response = await axios.post('http://localhost:5000/predict', { text });
+      const response = await axios.post('http://localhost:8080/predict', { text });
       setResults(response.data);
     } catch (err) {
       console.error('Prediction error:', err);
@@ -100,7 +100,7 @@ function App() {
             NER CoNNL-2003 English Dataset
           </h1>
           <p className="mt-3 text-xl text-gray-500">
-            ...
+            DESC: TODO
           </p>
         </div>
 

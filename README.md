@@ -4,11 +4,14 @@
 # CoNLL-2003-NER
 
 ## TODO
-- [ ] Check about using ndoejs for backend
-- [ ] Look at Django
-- [ ] Make a web user interface (maybe using React)
-- [ ] Make the link between items
-
+- [x] React display
+- [ ] Split code between components
+- [x] Launch a Flask server
+- [ ] Finish the code of predict() function for the Flask server
+- [ ] Move required files inside the `backend` folder
+- [ ] Make a Python Class of the NER trained model
+- [x] Tests and verify if the requests are working properly
+- [ ] Final tests with the display and real data
 
 ## Github Repository
 
