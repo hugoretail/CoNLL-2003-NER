@@ -23,14 +23,18 @@ export function EntityHighlight({ result }: { result: NERResult }) {
       );
     }
     const colorClass = entityColors[entity.entity as keyof typeof entityColors] || 'bg-gray-200 text-gray-800';
+    const wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(entity.text.replace(/ /g, '_'))}`;
     markedText.push(
-      <span
+      <a
         key={`entity-${entity.start}`}
-        className={`px-1 rounded-md mx-1 ${colorClass}`}
-        title={entity.entity}
+        href={wikiUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`px-1 rounded-md mx-1 cursor-pointer underline ${colorClass}`}
+        title={`See "${entity.text}" on Wikipedia`}
       >
         {entity.text}
-      </span>
+      </a>
     );
     lastIndex = entity.end;
   }

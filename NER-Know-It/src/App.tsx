@@ -37,7 +37,7 @@ function App() {
             NER CoNNL-2003 English Dataset
           </h1>
           <p className="mt-3 text-xl text-gray-500">
-            DESC: TODO
+            Identify the entities in your text!
           </p>
         </div>
 
