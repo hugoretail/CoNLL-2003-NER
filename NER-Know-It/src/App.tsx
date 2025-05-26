@@ -1,18 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react';
-import './App.css';
-
-type Entity = {
-  start: number;
-  end: number;
-  entity: string;
-  text: string;
-};
-
-type NERResult = {
-  text: string;
-  entities: Entity[];
-};
+import { EntityHighlight } from './components/EntityHighlight';
+import { EntityList } from './components/EntityList';
+import type { NERResult } from './types/ner';
 
 function App() {
   const [text, setText] = useState('');
@@ -22,15 +12,12 @@ function App() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!text.trim()) {
       setError('Please enter text');
       return;
     }
-
     setError(null);
     setLoading(true);
-    
     try {
       const response = await axios.post('http://localhost:8080/predict', { text });
       setResults(response.data);
@@ -40,56 +27,6 @@ function App() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const renderEntities = () => {
-    if (!results || !results.text) return null;
-
-    let text = results.text;
-    let markedText = [];
-    let lastIndex = 0;
-
-    const sortedEntities = [...results.entities].sort((a, b) => a.start - b.start);
-
-    const entityColors = {
-      'PER': 'bg-blue-200 text-blue-800',
-      'LOC': 'bg-green-200 text-green-800',
-      'ORG': 'bg-purple-200 text-purple-800',
-      'MISC': 'bg-yellow-200 text-yellow-800'
-    };
-
-    for (const entity of sortedEntities) {
-      if (entity.start > lastIndex) {
-        markedText.push(
-          <span key={`text-${lastIndex}`}>
-            {text.substring(lastIndex, entity.start)}
-          </span>
-        );
-      }
-
-      const colorClass = entityColors[entity.entity as keyof typeof entityColors] || 'bg-gray-200 text-gray-800';
-      markedText.push(
-        <span
-          key={`entity-${entity.start}`}
-          className={`px-1 rounded-md mx-1 ${colorClass}`}
-          title={entity.entity}
-        >
-          {entity.text}
-        </span>
-      );
-
-      lastIndex = entity.end;
-    }
-
-    if (lastIndex < text.length) {
-      markedText.push(
-        <span key={`text-${lastIndex}`}>
-          {text.substring(lastIndex)}
-        </span>
-      );
-    }
-
-    return markedText;
   };
 
   return (
@@ -147,7 +84,7 @@ function App() {
               
               <div className="bg-gray-50 p-4 rounded-md">
                 <div className="mb-4 leading-relaxed">
-                  {renderEntities()}
+                  <EntityHighlight result={results} />
                 </div>
                 
                 <div className="mt-4 border-t border-gray-200 pt-4">
@@ -164,33 +101,7 @@ function App() {
               <div className="mt-6">
                 <h3 className="text-sm font-medium text-gray-700 mb-2">Entities found</h3>
                 <div className="bg-white shadow overflow-hidden rounded-md">
-                  <ul className="divide-y divide-gray-200">
-                    {results.entities.map((entity, index) => (
-                      <li key={index} className="px-4 py-3">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <span className="font-medium">{entity.text}</span>
-                            <span className="ml-2 text-sm text-gray-500">
-                              (Positions {entity.start} - {entity.end})
-                            </span>
-                          </div>
-                          <span className={`px-2 py-1 rounded-md text-xs ${
-                            entity.entity === 'PER' ? 'bg-blue-200 text-blue-800' :
-                            entity.entity === 'LOC' ? 'bg-green-200 text-green-800' :
-                            entity.entity === 'ORG' ? 'bg-purple-200 text-purple-800' :
-                            'bg-yellow-200 text-yellow-800'
-                          }`}>
-                            {entity.entity}
-                          </span>
-                        </div>
-                      </li>
-                    ))}
-                    {results.entities.length === 0 && (
-                      <li className="px-4 py-3 text-gray-500">
-                        No entity found.
-                      </li>
-                    )}
-                  </ul>
+                  <EntityList result={results} />
                 </div>
               </div>
             </div>
