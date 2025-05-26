@@ -11,7 +11,7 @@ def display_dataset_info(dataset, split_name):
     print(f"{split_name.capitalize()} Set:")
     print(f"  Number of lines: {num_rows}")
     print(f"  Number of columns: {num_columns}")
-    print(f"  Data sample: {split[:3]}")
+    print(f"  Data sample: {split[100:110]}")
     print()
 
 display_dataset_info(dataset, 'train')
@@ -22,5 +22,5 @@ unique_labels = set()
 for example in dataset["train"]:
     unique_labels.update(example["ner_tags"])
 
-print("Labels uniques :", unique_labels)
-print("Nombre de labels :", len(unique_labels))
+print("Unique labels :", unique_labels)
+print("Nbr of labels :", len(unique_labels))

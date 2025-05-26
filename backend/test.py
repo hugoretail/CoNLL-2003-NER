@@ -7,7 +7,8 @@ ner_model = NERModel(MODEL_PATH, LABEL_LIST)
 
 sentences = [
     "Barack Obama was born in Hawaii.",
-    "Apple is looking at buying U.K. startup for $1 billion."
+    "Apple is looking at buying U.K. startup for $1 billion.",
+    "Concorde, the famous supersonic aircraft, was retired in 2003 by British Airways and Air France."
 ]
 
 for sentence in sentences:

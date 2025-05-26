@@ -5,13 +5,13 @@
 
 ## TODO
 - [x] React display
-- [ ] Split code between components
+- [x] Split code between components
 - [x] Launch a Flask server
-- [ ] Finish the code of predict() function for the Flask server
-- [ ] Move required files inside the `backend` folder
-- [ ] Make a Python Class of the NER trained model
+- [x] Finish the code of predict() function for the Flask server
+- [x] Move required files inside the `backend` folder
+- [x] Make a Python Class of the NER trained model
 - [x] Tests and verify if the requests are working properly
-- [ ] Final tests with the display and real data
+- [x] Final tests with the display and real data
 
 ## Github Repository
 
