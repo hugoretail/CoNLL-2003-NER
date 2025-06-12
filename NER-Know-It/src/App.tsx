@@ -20,6 +20,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.post('http://localhost:8080/predict', { text });
+      console.log('NER API response:', response.data);
       setResults(response.data);
     } catch (err) {
       console.error('Prediction error:', err);

@@ -5,13 +5,14 @@ from ner_model import NERModel
 app = Flask(__name__)
 CORS(app)
 
-LABEL_LIST = ["O", "B-PER", "I-PER", "B-LOC", "I-LOC", "B-ORG", "I-ORG", "B-MISC", "I-MISC"]
+LABEL_LIST = ["O", "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC", "B-MISC", "I-MISC"]
 MODEL_PATH = "../trained_model"
 
 ner_model = NERModel(MODEL_PATH, LABEL_LIST)
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    # [...]
     data = request.json
     text = data.get('text', '')
     if not text:

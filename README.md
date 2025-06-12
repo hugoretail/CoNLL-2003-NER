@@ -4,6 +4,7 @@
 # CoNLL-2003-NER
 
 ## TODO
+
 - [x] React display
 - [x] Split code between components
 - [x] Launch a Flask server
@@ -12,6 +13,18 @@
 - [x] Make a Python Class of the NER trained model
 - [x] Tests and verify if the requests are working properly
 - [x] Final tests with the display and real data
+
+## Internship Report
+
+- [x] Couverture
+- [x] Résumé
+- [x] Table des matières
+- [x] Context
+- [x] Activité professionnelle
+- [x] Impacts sociétaux et environnementaux
+- [x] Bilan
+- [x] Webographie
+- [x] Glossaire
 
 ## Github Repository
 

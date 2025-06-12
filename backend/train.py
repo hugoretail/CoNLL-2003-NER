@@ -1,11 +1,12 @@
-from datasets import load_from_disk
+from datasets import load_from_disk, load_dataset
 from transformers import AutoTokenizer, AutoModelForTokenClassification, TrainingArguments, Trainer
 from evaluate import load
 import numpy as np
 import json
 
-data_path = '../data'
-dataset = load_from_disk(data_path)
+# data_path = '../data'
+# dataset = load_from_disk(data_path)
+dataset = load_dataset("conll2003")
 train_dataset = dataset['train']
 validation_dataset = dataset['validation']
 
@@ -63,7 +64,7 @@ training_args = TrainingArguments(
 )
 
 metric = load("seqeval")
-label_list = ["O", "B-PER", "I-PER", "B-LOC", "I-LOC", "B-ORG", "I-ORG", "B-MISC", "I-MISC"]
+label_list = ["O", "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC", "B-MISC", "I-MISC"]
 
 def compute_metrics(p):
     predictions, labels = p
